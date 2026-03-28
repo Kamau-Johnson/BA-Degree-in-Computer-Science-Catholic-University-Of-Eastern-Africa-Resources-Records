@@ -98,38 +98,3 @@ select custno,year(curdate())-year(dateofbirth) as 'age'  from customer;
 select * from customer limit 1;
 
 
-use  ordersdb;
-select * from customer;
-select * from customer order by custname desc;
-
-#Group by clause
-select gender,count(*) as 'Total'
-from customer 
-group by  gender having count(*)>1;
-
-#Comparison search: Return tuples for customers in kenya and are male
-select * from customer where gender='male' or country='kenya';
-
-#Range Search: Customers born between 2020-01-01 and today
-select * from customer
-where dateofbirth not between '2020-01-01' and curdate();
-
-#Set Membership: All customers from Kenya 
-select * from customer where country not in ('Kenya');
-
-#Null Search Condition: All tuples where mobileno is null 
-select * from customer where mobileno is not null;
-select * from customer where custname like '%J';
-select * from customer where custname like '%e';
-select * from customer where custname like 'j__';
-
-
-
-
-
-
-
-
-
-
-
